@@ -41,40 +41,40 @@ echo 'coucou';
  	$contenu      = "Nom de l'expéditeur : " . $nom . "\r\n";
     $contenu      = $message."\r\n\n";
 
-	$from = array($email => $nom);
- 	// Email recipients
- 	$to = array(
-       'sebastien.goldberg@hotmail.com'=>'Sebastien Goldberg'
-       );
-       
- 	// Login credentials
- 	$username = 'ssseeebbb	';
- 	$password = 'Sebastien007.';
+<?php
 
- 	// Setup Swift mailer parameters
- 	$transport = Swift_SmtpTransport::newInstance('smtp.sendgrid.net', 587);
- 	$transport->setUsername($username);
- 	$transport->setPassword($password);
- 	$swift = Swift_Mailer::newInstance($transport);
+ $url = 'https://api.sendgrid.com/';
+ $user = 'ssseeebbb';
+ $pass = 'Sebastien007.'; 
 
- 	// Create a message (subject)
- 	$message = new Swift_Message($objet);
+ $params = array(
+      'api_user' => $user,
+      'api_key' => $pass,
+      'to' => 'sebastien.goldberg@hotmail.com	',
+      'subject' => $objet,
+      'html' => 'testing body',
+      'text' => $contenu,
+      'from' => $email,
+   );
 
- 	// attach the body of the email
- 	$message->setFrom($from);
- 	$message->setBody($html, 'text/html');
- 	$message->setTo($to);
- 	$message->addPart($message, 'text/plain');
-	echo 'coucou';
- 	// send message 
- 	if ($recipients = $swift->send($message, $failures))
- 	{
-     	// This will let us know how many users received this message
-     	echo 'Message sent out to '.$recipients.' users';
- 	}
- 	// something went wrong =(
- 	else
- 	{
-     	echo "Something went wrong - ";
-     	print_r($failures);
- 	}
+ $request = $url.'api/mail.send.json';
+
+ // Generate curl request
+ $session = curl_init($request);
+
+ // Tell curl to use HTTP POST
+ curl_setopt ($session, CURLOPT_POST, true);
+
+ // Tell curl that this is the body of the POST
+ curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
+
+ // Tell curl not to return headers, but do return the response
+ curl_setopt($session, CURLOPT_HEADER, false);
+ curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+ // obtain response
+ $response = curl_exec($session);
+ curl_close($session);
+
+ // print everything out
+ print_r($response);
