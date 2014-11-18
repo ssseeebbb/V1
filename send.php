@@ -1,6 +1,6 @@
 <?php
- 	include_once "lib/swift_required.php";
-echo 'coucou';
+
+	echo 'coucou';
     // CONDITIONS NOM
    if ( (isset($_POST['nom'])) && (strlen(trim($_POST['nom'])) > 0) ):
         $nom = stripslashes(strip_tags($_POST['nom']));
@@ -40,8 +40,6 @@ echo 'coucou';
     $objet        = "Springbok -" . $sujet;
  	$contenu      = "Nom de l'expéditeur : " . $nom . "\r\n";
     $contenu      = $message."\r\n\n";
-
-<?php
 
  $url = 'https://api.sendgrid.com/';
  $user = 'ssseeebbb';
