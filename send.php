@@ -77,4 +77,4 @@ echo 'coucou';
  curl_close($session);
 
  // print everything out
- print_r($response);
+echo $response;
