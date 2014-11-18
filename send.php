@@ -71,14 +71,15 @@ echo'curl-setopt3';
  // Tell curl not to return headers, but do return the response
  curl_setopt($session, CURLOPT_HEADER, false);
  
- echo'curl-setopt4';
+ echo 'curl-setopt4';
 
  curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
 echo'response';
  // obtain response
  $response = curl_exec($session);
- echo'curl-close';
+ echo 'curl-close';
  curl_close($session);
-
  // print everything out
 echo $response;
+
+?>
