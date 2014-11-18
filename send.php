@@ -65,7 +65,7 @@
  	$message->setBody($html, 'text/html');
  	$message->setTo($to);
  	$message->addPart($message, 'text/plain');
-
+	echo 'coucou';
  	// send message 
  	if ($recipients = $swift->send($message, $failures))
  	{
