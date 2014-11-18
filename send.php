@@ -1,4 +1,5 @@
 <?php
+ 	include_once "lib/swift_required.php";
 
     // CONDITIONS NOM
    if ( (isset($_POST['nom'])) && (strlen(trim($_POST['nom'])) > 0) ):
@@ -36,34 +37,44 @@
     endif;
 
 
-    // PREPARATION DES DONNEES
-
-    $destinataire = "sebastien.goldberg@gmail.com";
     $objet        = "Springbok -" . $sujet;
-    $contenu      = "Nom de l'expéditeur : " . $nom . "\r\n";
+ 	$contenu      = "Nom de l'expéditeur : " . $nom . "\r\n";
     $contenu      = $message."\r\n\n";
 
-    $headers  = "From: {$email}" . "\r\n"; // ici l'expediteur du mail
-    $headers .= 'Content-Type: text/plain; charset="ISO-8859-1"; DelSp="Yes"; format=flowed \r\n';
-    $headers .= 'Content-Disposition: inline \r\n';
-    $headers .= 'Content-Transfer-Encoding: 7bit \r\n';
-    $headers .= 'MIME-Version: 1.0';
+	$from = array($email => $nom);
+ 	// Email recipients
+ 	$to = array(
+       'sebastien.goldberg@hotmail.com'=>'Sebastien Goldberg'
+       );
+       
+ 	// Login credentials
+ 	$username = 'ssseeebbb	';
+ 	$password = 'Sebastien007.';
 
+ 	// Setup Swift mailer parameters
+ 	$transport = Swift_SmtpTransport::newInstance('smtp.sendgrid.net', 587);
+ 	$transport->setUsername($username);
+ 	$transport->setPassword($password);
+ 	$swift = Swift_Mailer::newInstance($transport);
 
+ 	// Create a message (subject)
+ 	$message = new Swift_Message($objet);
 
+ 	// attach the body of the email
+ 	$message->setFrom($from);
+ 	$message->setBody($html, 'text/html');
+ 	$message->setTo($to);
+ 	$message->addPart($message, 'text/plain');
 
-
-    // SI LES CHAMPS SONT MAL REMPLIS
-    if ( (empty($nom)) && (empty($sujet)) && (empty($email)) && (!filter_var($email, FILTER_VALIDATE_EMAIL)) && (empty($message)) ):
-        echo 'echec :( <br /><a href="index.html">Retour au formulaire</a>';
-    // ENCAPSULATION DES DONNEES
-    else:
-        if(mail($destinataire,$sujet,utf8_decode($message))){;
-            echo 'Formulaire envoyé';
-        }
-        else{
-            echo 'Echec de lenvoi du formulaire'.$destinataire.'     '.$sujet.'    '.$message.'      ';
-        }
-    endif;
-
-?>
+ 	// send message 
+ 	if ($recipients = $swift->send($message, $failures))
+ 	{
+     	// This will let us know how many users received this message
+     	echo 'Message sent out to '.$recipients.' users';
+ 	}
+ 	// something went wrong =(
+ 	else
+ 	{
+     	echo "Something went wrong - ";
+     	print_r($failures);
+ 	}
