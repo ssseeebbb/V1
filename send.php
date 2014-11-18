@@ -38,7 +38,7 @@
 
     // PREPARATION DES DONNEES
 
-    $destinataire = "adrienresteau@gmail.com";
+    $destinataire = "sebastien.goldberg@gmail.com";
     $objet        = "Springbok -" . $sujet;
     $contenu      = "Nom de l'expéditeur : " . $nom . "\r\n";
     $contenu      = $message."\r\n\n";
