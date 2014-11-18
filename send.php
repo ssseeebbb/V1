@@ -62,7 +62,7 @@
             echo 'Formulaire envoyé';
         }
         else{
-            echo 'Echec de lenvoi du formulaire';
+            echo 'Echec de lenvoi du formulaire'.$destinataire.'     '.$sujet.'    '.$message.'      ';
         }
     endif;
 
