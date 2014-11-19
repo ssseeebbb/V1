@@ -54,32 +54,23 @@
       'text' => $contenu,
       'from' => $email,
    );
-echo 'request';
  $request = $url.'api/mail.send.json';
-echo'session';
  // Generate curl request
  $session = curl_init($request);
-echo'curl-setopt';
  // Tell curl to use HTTP POST
  curl_setopt ($session, CURLOPT_POST, true);
-echo'curl-setopt2';
 
  // Tell curl that this is the body of the POST
  curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
-echo'curl-setopt3';
 
  // Tell curl not to return headers, but do return the response
  curl_setopt($session, CURLOPT_HEADER, false);
  
- echo 'curl-setopt4';
 
  curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-echo'response';
  // obtain response
  $response = curl_exec($session);
- echo 'curl-close';
  curl_close($session);
  // print everything out
-echo $response;
 
 ?>
