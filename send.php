@@ -41,7 +41,7 @@ require("sendgrid-php.php");
 // echo "coucou";
      $sendgrid->send($email);
 
-// echo "envoye";
+ echo "envoye";
 
 // //echo "coucou";
 //     // CONDITIONS NOM
