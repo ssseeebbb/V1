@@ -1,4 +1,5 @@
 <?php
+echo "coucou";
 	{  
   	"require": {
     "sendgrid/sendgrid": "2.1.1"
