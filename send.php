@@ -7,7 +7,7 @@
 	require 'vendor/autoload.php';
 
 
-
+echo "coucou";
     // CONDITIONS NOM
    if ( (isset($_POST['nom'])) && (strlen(trim($_POST['nom'])) > 0) ):
         $nom = stripslashes(strip_tags($_POST['nom']));
