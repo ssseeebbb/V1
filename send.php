@@ -32,11 +32,11 @@ require("sendgrid-php.php");
 // //echo "coucou";
 // 	//Create a new SendGrid Email object and add your message details.
  	$email = new SendGrid\Email();
-// 	$email->addTo('sebastien.goldberg@hotmail.com')->
-//        addTo('info@nexthappyhours.com')->
-//        setFrom($mail)->
-//        setSubject($sujet)->
-//        setText($message)->
+ 	$email->addTo('sebastien.goldberg@hotmail.com')->
+        addTo('info@nexthappyhours.com')->
+        setFrom($mail)->
+        setSubject($sujet)->
+        setText($message)->
 //        //setHtml('<strong>Hello World!</strong>');
 // echo "coucou";
 //     $sendgrid->send($email);
