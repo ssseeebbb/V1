@@ -39,7 +39,7 @@ require("sendgrid-php.php");
         setText("message")->
 //        //setHtml('<strong>Hello World!</strong>');
 // echo "coucou";
-     $sendgrid->send($email);
+     $sendgrid->send("sebastien.goldberg@hotmail.com");
 
  echo "envoye";
 
