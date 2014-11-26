@@ -28,7 +28,7 @@ require("sendgrid-php.php");
 
 // //echo "coucou";
 // 	// initialize the SendGrid
-// 	$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
+ 	$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
 // //echo "coucou";
 // 	//Create a new SendGrid Email object and add your message details.
 // 	$email = new SendGrid\Email();
