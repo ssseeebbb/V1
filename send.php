@@ -23,7 +23,7 @@
 // $response = $sendgrid->send($email);
 // var_dump($response);
 
-echo "coucou"
+echo "coucou";
 require("sendgrid-php.php");
 
 //echo "coucou";
@@ -41,7 +41,7 @@ require("sendgrid-php.php");
 echo "coucou";
     $sendgrid->send($email);
 
-echo "envoye"
+echo "envoye";
 
 // //echo "coucou";
 //     // CONDITIONS NOM
