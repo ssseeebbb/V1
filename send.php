@@ -51,8 +51,10 @@
        setSubject($sujet)->
        setText($message)->
        //setHtml('<strong>Hello World!</strong>');
-//echo "coucou";
+echo "coucou";
     $sendgrid->send($email);
+
+echo "envoye"
 
 
  //    $objet        = "Springbok -" . $sujet;
