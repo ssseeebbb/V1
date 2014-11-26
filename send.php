@@ -35,8 +35,8 @@ require("sendgrid-php.php");
  	$email->addTo('sebastien.goldberg@hotmail.com')->
         addTo('info@nexthappyhours.com')->
         setFrom($mail)->
-        setSubject($sujet)->
-        setText($message)->
+//        setSubject($sujet)->
+//        setText($message)->
 //        //setHtml('<strong>Hello World!</strong>');
 // echo "coucou";
 //     $sendgrid->send($email);
