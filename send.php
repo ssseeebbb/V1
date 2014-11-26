@@ -2,7 +2,39 @@
 
 
 
+
+
+
 <?php
+
+require 'vendor/autoload.php';
+Dotenv::load(__DIR__);
+$sendgrid_username = $_ENV['ssseeebbb'];
+$sendgrid_password = $_ENV['Sebastien007.'];
+$to                = $_ENV['sebastien.goldberg@hotmail.com'];
+$transport  = Swift_SmtpTransport::newInstance('smtp.sendgrid.net', 587);
+$transport->setUsername($sendgrid_username);
+$transport->setPassword($sendgrid_password);
+$mailer     = Swift_Mailer::newInstance($transport);
+$message    = new Swift_Message();
+$message->setTo($to);
+$message->setFrom($to);
+$message->setSubject("[smtp-php-example] Owl named %yourname%");
+$message->setBody("%how% are you doing?");
+$header           = new Smtpapi\Header();
+$header->addSubstitution("%yourname%", array("Mr. Owl"));
+$header->addSubstitution("%how%", array("Owl"));
+$message_headers  = $message->getHeaders();
+$message_headers->addTextHeader("x-smtpapi", $header->jsonString());
+try {
+  $response = $mailer->send($message);
+  print_r($response);
+} catch(\Swift_TransportException $e) {
+  print_r($e);
+  print_r('Bad username / password');
+}
+
+
 // require 'vendor/autoload.php';
 // Dotenv::load(__DIR__);
 // $sendgrid_username = $_ENV['ssseeebbb'];
@@ -23,25 +55,25 @@
 // $response = $sendgrid->send($email);
 // var_dump($response);
 
-echo "coucou";
-require("sendgrid-php.php");
+// echo "coucou";
+// require("sendgrid-php.php");
 
-// //echo "coucou";
-// 	// initialize the SendGrid
- 	$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
-// //echo "coucou";
-// 	//Create a new SendGrid Email object and add your message details.
- 	$email = new SendGrid\Email();
- 	$email->addTo('sebastien.goldberg@hotmail.com')->
-        addTo('info@nexthappyhours.com')->
-        setFrom("mail")->
-        setSubject("sujet")->
-        setText("message")->
-        setHtml('<strong>Hello World!</strong>');
- echo "coucou";
-     $sendgrid->send("sebastien.goldberg@hotmail.com");
+// // //echo "coucou";
+// // 	// initialize the SendGrid
+//  	$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
+// // //echo "coucou";
+// // 	//Create a new SendGrid Email object and add your message details.
+//  	$email = new SendGrid\Email();
+//  	$email->addTo('sebastien.goldberg@hotmail.com')->
+//         addTo('info@nexthappyhours.com')->
+//         setFrom("mail")->
+//         setSubject("sujet")->
+//         setText("message")->
+//         setHtml('<strong>Hello World!</strong>');
+//  echo "coucou";
+//      $sendgrid->send("sebastien.goldberg@hotmail.com");
 
- echo "envoye";
+//  echo "envoye";
 
 // //echo "coucou";
 //     // CONDITIONS NOM
