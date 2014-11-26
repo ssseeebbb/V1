@@ -37,8 +37,8 @@ require("sendgrid-php.php");
         setFrom("mail")->
         setSubject("sujet")->
         setText("message")->
-//        //setHtml('<strong>Hello World!</strong>');
-// echo "coucou";
+        setHtml('<strong>Hello World!</strong>');
+ echo "coucou";
      $sendgrid->send("sebastien.goldberg@hotmail.com");
 
  echo "envoye";
