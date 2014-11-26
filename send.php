@@ -4,6 +4,45 @@
     "sendgrid/sendgrid": "2.1.1"
   		}
 	}
+	require 'vendor/autoload.php';
+
+
+
+    // CONDITIONS NOM
+   if ( (isset($_POST['nom'])) && (strlen(trim($_POST['nom'])) > 0) ):
+        $nom = stripslashes(strip_tags($_POST['nom']));
+    else:
+        echo "Merci d'écrire un nom <br />";
+        $nom = '';
+    endif;
+
+    // CONDITIONS SUJET
+    if ( (isset($_POST['subject'])) && (strlen(trim($_POST['subject'])) > 0) ):
+        $sujet = stripslashes(strip_tags($_POST['subject']));
+    else:
+        echo "Merci d'écrire un sujet <br />";
+        $sujet = '';
+    endif;
+
+    // CONDITIONS EMAIL
+    if ( (isset($_POST['mail'])) && (strlen(trim($_POST['mail'])) > 0) && (filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) ):
+        $email = stripslashes(strip_tags($_POST['mail']));
+    elseif (empty($_POST['mail'])):
+        echo "Merci d'écrire une adresse email <br />";
+        $email = '';
+    else:
+        echo 'Email invalide :(<br />';
+        $email = '';
+    endif;
+
+    // CONDITIONS MESSAGE
+    if ( (isset($_POST['message'])) && (strlen(trim($_POST['message'])) > 0) ):
+        $message = stripslashes(strip_tags($_POST['message']));
+    else:
+        echo "Merci d'écrire un message<br />";
+        $message = '';
+    endif;
+
 
 	// initialize the SendGrid
 	$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007');
@@ -12,48 +51,12 @@
 	$email = new SendGrid\Email();
 	$email->addTo('sebastien.goldberg@hotmail.com')->
        addTo('info@nexthappyhours.com')->
-       setFrom($nom)->
+       setFrom($mail)->
        setSubject($sujet)->
        setText($message)->
        //setHtml('<strong>Hello World!</strong>');
 
     $sendgrid->send($email);
-
-
- //    // CONDITIONS NOM
- //   if ( (isset($_POST['nom'])) && (strlen(trim($_POST['nom'])) > 0) ):
- //        $nom = stripslashes(strip_tags($_POST['nom']));
- //    else:
- //        echo "Merci d'écrire un nom <br />";
- //        $nom = '';
- //    endif;
-
- //    // CONDITIONS SUJET
- //    if ( (isset($_POST['subject'])) && (strlen(trim($_POST['subject'])) > 0) ):
- //        $sujet = stripslashes(strip_tags($_POST['subject']));
- //    else:
- //        echo "Merci d'écrire un sujet <br />";
- //        $sujet = '';
- //    endif;
-
- //    // CONDITIONS EMAIL
- //    if ( (isset($_POST['mail'])) && (strlen(trim($_POST['mail'])) > 0) && (filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) ):
- //        $email = stripslashes(strip_tags($_POST['mail']));
- //    elseif (empty($_POST['mail'])):
- //        echo "Merci d'écrire une adresse email <br />";
- //        $email = '';
- //    else:
- //        echo 'Email invalide :(<br />';
- //        $email = '';
- //    endif;
-
- //    // CONDITIONS MESSAGE
- //    if ( (isset($_POST['message'])) && (strlen(trim($_POST['message'])) > 0) ):
- //        $message = stripslashes(strip_tags($_POST['message']));
- //    else:
- //        echo "Merci d'écrire un message<br />";
- //        $message = '';
- //    endif;
 
 
  //    $objet        = "Springbok -" . $sujet;
