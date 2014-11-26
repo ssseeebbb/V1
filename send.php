@@ -29,6 +29,7 @@ $message_headers->addTextHeader("x-smtpapi", $header->jsonString());
 try {
   $response = $mailer->send($message);
   print_r($response);
+  echo "lolalo";
 } catch(\Swift_TransportException $e) {
   print_r($e);
   print_r('Bad username / password');
