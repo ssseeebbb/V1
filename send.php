@@ -55,7 +55,7 @@
        setSubject($sujet)->
        setText($message)->
        //setHtml('<strong>Hello World!</strong>');
-
+echo "coucou";
     $sendgrid->send($email);
 
 
