@@ -24,7 +24,7 @@
 // var_dump($response);
 
 echo "coucou";
-// require("sendgrid-php.php");
+require("sendgrid-php.php");
 
 // //echo "coucou";
 // 	// initialize the SendGrid
