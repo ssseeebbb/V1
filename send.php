@@ -24,24 +24,24 @@
 // var_dump($response);
 
 echo "coucou";
-require("sendgrid-php.php");
+// require("sendgrid-php.php");
 
-//echo "coucou";
-	// initialize the SendGrid
-	$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
-//echo "coucou";
-	//Create a new SendGrid Email object and add your message details.
-	$email = new SendGrid\Email();
-	$email->addTo('sebastien.goldberg@hotmail.com')->
-       addTo('info@nexthappyhours.com')->
-       setFrom($mail)->
-       setSubject($sujet)->
-       setText($message)->
-       //setHtml('<strong>Hello World!</strong>');
-echo "coucou";
-    $sendgrid->send($email);
+// //echo "coucou";
+// 	// initialize the SendGrid
+// 	$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
+// //echo "coucou";
+// 	//Create a new SendGrid Email object and add your message details.
+// 	$email = new SendGrid\Email();
+// 	$email->addTo('sebastien.goldberg@hotmail.com')->
+//        addTo('info@nexthappyhours.com')->
+//        setFrom($mail)->
+//        setSubject($sujet)->
+//        setText($message)->
+//        //setHtml('<strong>Hello World!</strong>');
+// echo "coucou";
+//     $sendgrid->send($email);
 
-echo "envoye";
+// echo "envoye";
 
 // //echo "coucou";
 //     // CONDITIONS NOM
