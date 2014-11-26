@@ -31,7 +31,7 @@ require("sendgrid-php.php");
  	$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
 // //echo "coucou";
 // 	//Create a new SendGrid Email object and add your message details.
-// 	$email = new SendGrid\Email();
+ 	$email = new SendGrid\Email();
 // 	$email->addTo('sebastien.goldberg@hotmail.com')->
 //        addTo('info@nexthappyhours.com')->
 //        setFrom($mail)->
