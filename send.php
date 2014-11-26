@@ -6,7 +6,7 @@
 
 
 <?php
-
+echo "coucou";
 require 'vendor/autoload.php';
 Dotenv::load(__DIR__);
 $sendgrid_username = $_ENV['ssseeebbb'];
