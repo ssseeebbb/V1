@@ -7,7 +7,7 @@
 
 <?php
 echo "coucou";
-require 'vendor/autoload.php';
+require 'sendgrip-php.php';
 Dotenv::load(__DIR__);
 $sendgrid_username = $_ENV['ssseeebbb'];
 $sendgrid_password = $_ENV['Sebastien007.'];
