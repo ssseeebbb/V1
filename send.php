@@ -27,6 +27,7 @@ $header->addSubstitution("%how%", array("Owl"));
 $message_headers  = $message->getHeaders();
 $message_headers->addTextHeader("x-smtpapi", $header->jsonString());
 try {
+	  echo "lolalo";
   $response = $mailer->send($message);
   print_r($response);
   echo "lolalo";
