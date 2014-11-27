@@ -23,7 +23,8 @@ $options = array(
 );
 
 
-$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.', $options);
+//$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.', $options);
+$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007', array( 'url' => 'http://sendgrid.org:80/send'));
 
 $email = new SendGrid\Email();
 $email->addTo('sebastien.goldberg@hotmail.com');
