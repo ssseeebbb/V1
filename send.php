@@ -17,7 +17,7 @@ $email->setFrom('foo@bar.com');
 $email->setFromName('Foo Bar');
 $email->setText('This is some text');
 
-
+echo "bonjour";
 $sendgrid->send($email);
 
 /*Dotenv::load(__DIR__);
