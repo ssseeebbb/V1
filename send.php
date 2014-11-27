@@ -9,8 +9,35 @@
 echo "coucou";
 
 
+require 'vendor/autoload.php';
+Dotenv::load(__DIR__);
 
-require 'sendgrid-php/sendgrid-php.php';
+$sendgrid_username = $_ENV['ssseeebbb'];
+$sendgrid_password = $_ENV['Sebastien007.'];
+$to                = $_ENV['sebastien.goldberg@hotmail.com'];
+$sendgrid = new SendGrid($sendgrid_username, $sendgrid_password, array("turn_off_ssl_verification" => true));
+$email    = new SendGrid\Email();
+$email->addTo($to)->
+       setFrom($to)->
+       setSubject('[sendgrid-php-example] Owl named sebastien')->
+       setText('Owl are you doing?')->
+       //setHtml('<strong>%how% are you doing?</strong>')->
+       //addSubstitution("%yourname%", array("Mr. Owl"))->
+       //addSubstitution("%how%", array("Owl"))->
+       addHeader('X-Sent-Using', 'SendGrid-API')->
+       //addHeader('X-Transport', 'web')->
+       //addAttachment('./gif.gif', 'owl.gif');
+$response = $sendgrid->send($email);
+echo'coucou2'
+var_dump($response);
+
+
+
+
+
+
+
+/*require 'sendgrid-php/sendgrid-php.php';
 
 
 $options = array(
@@ -36,7 +63,7 @@ $email->setText('This is some text');
 
 echo "bonjour";
 $sendgrid->send($email);
-echo "envoye"
+echo "envoye"*/
 
 /*Dotenv::load(__DIR__);
 $sendgrid_username = $_ENV['ssseeebbb'];
