@@ -9,10 +9,18 @@
 echo "coucou";
 require 'sendgrid-php/sendgrid-php.php';
 
+$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
+
+$email = new SendGrid\Email();
+$email->addTo('sebastien.goldberg@hotmail.com');
+$email->setFrom('foo@bar.com');
+$email->setFromName('Foo Bar');
+$email->setText('This is some text');
 
 
+$sendgrid->send($email);
 
-Dotenv::load(__DIR__);
+/*Dotenv::load(__DIR__);
 $sendgrid_username = $_ENV['ssseeebbb'];
 $sendgrid_password = $_ENV['Sebastien007.'];
 $to                = $_ENV['sebastien.goldberg@hotmail.com'];
@@ -39,7 +47,7 @@ try {
   print_r($e);
   print_r('Bad username / password');
 }
-
+*/
 
 // require 'vendor/autoload.php';
 // Dotenv::load(__DIR__);
