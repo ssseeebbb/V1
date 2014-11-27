@@ -7,9 +7,23 @@
 
 <?php
 echo "coucou";
+
+
+
 require 'sendgrid-php/sendgrid-php.php';
 
-$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.');
+
+$options = array(
+  'turn_off_ssl_verification' => false,
+  'protocol' => 'https',
+  'host' => 'api.sendgrid.com',
+  'endpoint' => '/api/mail.send.json',
+  'port' => null,
+  'url' => null
+);
+
+
+$sendgrid = new SendGrid('ssseeebbb', 'Sebastien007.', $options);
 
 $email = new SendGrid\Email();
 $email->addTo('sebastien.goldberg@hotmail.com');
