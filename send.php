@@ -27,7 +27,7 @@ $email->addTo($to)->
        addHeader('X-Sent-Using', 'SendGrid-API')->
        //addHeader('X-Transport', 'web')->
        //addAttachment('./gif.gif', 'owl.gif');
-$response = $sendgrid->send($email);
+//$response = $sendgrid->send($email);
 echo'coucou2'
 var_dump($response);
 
