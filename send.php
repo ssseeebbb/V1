@@ -33,6 +33,7 @@ $email->setText('This is some text');
 
 echo "bonjour";
 $sendgrid->send($email);
+echo "envoye"
 
 /*Dotenv::load(__DIR__);
 $sendgrid_username = $_ENV['ssseeebbb'];
