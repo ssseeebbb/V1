@@ -21,13 +21,13 @@ $email->addTo($to)->
        setFrom($to)->
        setSubject('[sendgrid-php-example] Owl named sebastien')->
        setText('Owl are you doing?')->
-       //setHtml('<strong>%how% are you doing?</strong>')->
-       //addSubstitution("%yourname%", array("Mr. Owl"))->
-       //addSubstitution("%how%", array("Owl"))->
+       setHtml('<strong>%how% are you doing?</strong>')->
+       addSubstitution("%yourname%", array("Mr. Owl"))->
+       addSubstitution("%how%", array("Owl"))->
        addHeader('X-Sent-Using', 'SendGrid-API')->
-       //addHeader('X-Transport', 'web')->
-       //addAttachment('./gif.gif', 'owl.gif');
-//$response = $sendgrid->send($email);
+       addHeader('X-Transport', 'web')->
+       addAttachment('./gif.gif', 'owl.gif');
+$response = $sendgrid->send($email);
 echo'coucou2'
 var_dump($response);
 
